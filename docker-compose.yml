@@ -2,13 +2,14 @@ version: '2'
 
 services: 
   wordpress:
-    image: wordpress
+    image: custom-wordpress
+    build:
+      context: .
+      dockerfile: wp.Dockerfile
     ports: 
       - 8080:80
     environment:
       WORDPRESS_DB_PASSWORD: root
-    volumes:
-      - ./avada:/var/www/html/wp-content/themes/avada/
 
   mysql:
     image: mysql:8
@@ -18,4 +19,4 @@ services:
       - wp-db:/var/lib/mysql
 
 volumes: 
-  unity-wp-db:
+  wp-db:
