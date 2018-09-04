@@ -15,7 +15,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: root
     volumes:
-      - unity-wp-db:/var/lib/mysql
+      - wp-db:/var/lib/mysql
 
 volumes: 
   unity-wp-db:
