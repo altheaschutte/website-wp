@@ -1,0 +1,21 @@
+version: '2'
+
+services: 
+  wordpress:
+    image: wordpress
+    ports: 
+      - 8080:80
+    environment:
+      WORDPRESS_DB_PASSWORD: root
+    volumes:
+      - ./avada:/var/www/html/wp-content/themes/avada/
+
+  mysql:
+    image: mysql:8
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - unity-wp-db:/var/lib/mysql
+
+volumes: 
+  unity-wp-db:

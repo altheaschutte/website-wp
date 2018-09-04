@@ -1,0 +1,12 @@
+{
+  "name": "website-wp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "docker build -t wordpress-with-avada . && docker run --name wordpress-mysql -v unity-wp-db:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root -d mysql:8 && docker run --name test-wordpress --link wordpress-mysql:mysql -p 8080:80 -d wordpress-with-avada",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
