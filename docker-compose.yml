@@ -2,14 +2,14 @@ version: '2'
 
 services: 
   wordpress:
-    image: custom-wordpress
-    build:
-      context: .
-      dockerfile: wp.Dockerfile
+    image: wordpress
     ports: 
       - 8080:80
     environment:
       WORDPRESS_DB_PASSWORD: root
+    volumes:
+      - ./plugins:/var/www/html/wp-content/plugins
+      - ./themes:/var/www/html/wp-content/themes
 
   mysql:
     image: mysql:8
